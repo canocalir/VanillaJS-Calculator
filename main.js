@@ -8,6 +8,8 @@ const state = {
   operator: null,
 };
 
+let result = null;
+
 const calculateScreen = () => {
   resultScreen.value = state.firstValue;
 };
@@ -37,36 +39,37 @@ calculatorButtons.addEventListener("click", (e) => {
       state.secondValue = resultScreen.value;
     }
   } else if (target.classList.contains("equals")) {
-    calculateValues();
+    state.isSecondValue
+    ? calculateValues()
+    : null
   } else if (target.classList.contains("clear")) {
     clearValues();
   } else if (target.classList.contains("change")) {
     changeValues();
   } else if (target.value === "%") {
     state.operator = target.value;
-    calculateValues();
+    if (state.operator === "%") {
+      result = eval(resultScreen.value / 100);
+      resultScreen.value = result;
+    }
   } else if (target.value === ".") {
     changeFloat();
   }
 });
 
 const changeFloat = () => {
-  if(!state.isSecondValue && !resultScreen.value.includes('.')){
-    resultScreen.value += "."
-  }else if (state.isSecondValue && !state.secondValue.includes('.')) {
+  if (!state.isSecondValue && !resultScreen.value.includes(".")) {
+    resultScreen.value += ".";
+  } else if (state.isSecondValue && !state.secondValue.includes(".")) {
     state.secondValue += ".";
     resultScreen.value = state.secondValue;
   }
 };
 
 const calculateValues = () => {
-  let result = eval((state.firstValue += state.operator + state.secondValue));
+  result = eval((state.firstValue += state.operator + state.secondValue));
   state.secondValue = null;
   resultScreen.value = result;
-  if (state.operator === "%") {
-    result = eval(state.firstValue / 100);
-    resultScreen.value = result;
-  }
 };
 
 const clearValues = () => {
@@ -81,12 +84,10 @@ const changeValues = () => {
   if (resultScreen.value > 0 && !state.isSecondValue) {
     state.firstValue = "-" + resultScreen.value;
     resultScreen.value = state.firstValue;
-  } else if(state.isSecondValue) {
+  } else if (state.isSecondValue) {
     state.secondValue = "-" + resultScreen.value;
     resultScreen.value = state.secondValue;
   }
 };
 
 //Background
-
-
