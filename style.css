@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'LCD Normal';
+    font-style: normal;
+    font-weight: normal;
+    src: local('LCD Normal'), url('./font/LCD-N___.woff') format('woff');
+    }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.orange-btn{
+    background-color: orange !important;
+    font-size: 2rem !important;
+}
+
+.orange-btn:hover {
+    background-color: rgb(202, 146, 42) !important;
+}
+
+.wide-btn {
+    grid-area: 5 / 1 / 6 / 3;
+    width: 100% !important;
+    border-radius: 4rem !important;
+}
+
+.main-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.calculator-container{
+    margin: auto;
+    width: 23rem;
+    height: 33rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(26, 23, 23);
+}
+
+.buttons{
+    display: grid;
+    place-items: center;
+    gap: 0.4rem;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-top: 2rem;
+}
+
+.buttons button{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(134, 56, 150);
+    color: #fff;
+    box-shadow: 1px 1px 20px 5px rgb(112, 104, 112) inset;
+}
+
+.buttons button:hover {
+    background-color: rgb(97, 39, 121);
+    transition: ease-in-out 200ms;
+}
+
+.light-btn{
+    background-color: rgb(218, 218, 218) !important;
+    color: #222 !important;
+}
+
+.light-btn:hover{
+    background-color: rgb(155, 153, 153) !important;
+}
+
+.result-screen{
+    background-color: rgb(40, 192, 26);
+    box-shadow: 1px 10px 20px 5px Green inset;
+    font-size: 3rem;
+    text-align: right;
+    padding: 0.8rem;
+    color: #222;
+    width: 100%;
+    font-family: 'LCD Normal';
+    font-style: normal;
+    font-weight: normal;
+}
