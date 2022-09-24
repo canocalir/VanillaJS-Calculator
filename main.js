@@ -47,14 +47,13 @@ calculatorButtons.addEventListener("click", (e) => {
     calculateValues();
   } else if (target.value === ".") {
     changeFloat();
-    console.log(".");
   }
 });
 
 const changeFloat = () => {
-  !state.isSecondValue ? (resultScreen.value += ".") : null;
-
-  if (state.isSecondValue) {
+  if(!state.isSecondValue && !resultScreen.value.includes('.')){
+    resultScreen.value += "."
+  }else if (state.isSecondValue && !state.secondValue.includes('.')) {
     state.secondValue += ".";
     resultScreen.value = state.secondValue;
   }
