@@ -12,12 +12,12 @@
 }
 
 .orange-btn{
-    background-color: orange !important;
+    background-color: rgba(255, 166, 0, 0.767) !important;
     font-size: 2rem !important;
 }
 
 .orange-btn:hover {
-    background-color: rgb(202, 146, 42) !important;
+    background-color: rgb(250, 190, 78) !important;
 }
 
 .wide-btn {
@@ -36,10 +36,11 @@
     margin: auto;
     width: 23rem;
     height: 33rem;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 2rem;
     border-radius: 1rem;
-    background-color: rgb(26, 23, 23);
+    background-color: rgba(24, 2, 39, 0.24);
+    backdrop-filter: blur(20px);
 }
 
 .buttons{
@@ -49,40 +50,58 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     margin-top: 2rem;
+    
 }
 
 .buttons button{
     width: 4rem;
     height: 4rem;
-    border-radius: 50%;
+    border-radius: 30%;
     font-size: 1.8rem;
+    font-weight: 600;
     cursor: pointer;
-    border: none;
-    background-color: rgb(134, 56, 150);
+    background: rgba(63, 19, 80, 0.678);
     color: #fff;
-    box-shadow: 1px 1px 20px 5px rgb(112, 104, 112) inset;
+    box-shadow: 2px 2px 5px 0 hsla(0, 0%, 0%, .75);
+    backdrop-filter: blur(20px);
+  outline: none;
+  transition: 1s ease-in-out;
 }
 
 .buttons button:hover {
-    background-color: rgb(97, 39, 121);
+    background-color: rgba(116, 56, 139, 0.678);
     transition: ease-in-out 200ms;
+    
 }
 
+.buttons button:hover svg{
+    stroke-dashoffset: -480;
+}   
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+
 .light-btn{
-    background-color: rgb(218, 218, 218) !important;
-    color: #222 !important;
+    background-color: rgba(218, 218, 218, 0.678) !important;
+    color: rgb(73, 73, 73) !important;
 }
 
 .light-btn:hover{
-    background-color: rgb(155, 153, 153) !important;
+    background-color: rgb(243, 243, 243) !important;
 }
 
 .result-screen{
-    background-color: rgb(40, 192, 26);
-    box-shadow: 1px 10px 20px 5px Green inset;
+    background-color: rgba(40, 192, 26, 0.815);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px inset, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px inset;
     font-size: 3rem;
-    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .5);
-
     text-align: right;
     padding: 0.8rem;
     color: #222;
@@ -91,3 +110,33 @@
     font-style: normal;
     font-weight: normal;
 }
+
+.bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
