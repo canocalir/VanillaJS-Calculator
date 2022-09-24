@@ -81,6 +81,8 @@
     background-color: rgb(40, 192, 26);
     box-shadow: 1px 10px 20px 5px Green inset;
     font-size: 3rem;
+    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, .5);
+
     text-align: right;
     padding: 0.8rem;
     color: #222;

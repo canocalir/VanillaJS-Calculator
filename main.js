@@ -82,7 +82,8 @@ const changeValues = () => {
   if (resultScreen.value > 0 && !state.isSecondValue) {
     state.firstValue = "-" + resultScreen.value;
     resultScreen.value = state.firstValue;
-  } else {
-    state.secondValue = resultScreen.value;
+  } else if(state.isSecondValue) {
+    state.secondValue = "-" + resultScreen.value;
+    resultScreen.value = state.secondValue;
   }
 };
